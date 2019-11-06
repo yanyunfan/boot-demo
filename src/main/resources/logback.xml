@@ -41,19 +41,6 @@
             <charset>UTF-8</charset>
         </encoder>
     </appender>
-	
-	<!--输出错误日志文件-->
-    <appender name="ERROR_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${log.path}/error.log</file>
-        <encoder>
-            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
-            <charset>UTF-8</charset>
-        </encoder>
-        <!--过滤掉所有低于该级别的日志-->
-        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
-            <level>error</level>
-        </filter>
-    </appender>
 
     <!--文件目录控制日志级别-->
     <logger name="com.boot.demo.mapper" level="DEBUG" />
@@ -61,7 +48,6 @@
     <root level="info">
         <appender-ref ref="CONSOLE" />
         <appender-ref ref="FILE" />
-        <appender-ref ref="ERROR_FILE" />
     </root>
 
 </configuration>
